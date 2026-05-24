@@ -1,6 +1,7 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
+  "globalEnv": ["PORT", "KAFKA_BROKERS"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],

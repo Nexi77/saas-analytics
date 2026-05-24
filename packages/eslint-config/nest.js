@@ -1,8 +1,8 @@
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import { defineConfig } from 'eslint/config';
 import { baseConfig } from "./base.js";
 
-export const nestConfig = tseslint.config(
+export const nestConfig = defineConfig(
   ...baseConfig,
   ...tseslint.configs.recommendedTypeChecked,
   {

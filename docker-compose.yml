@@ -16,6 +16,12 @@ services:
       - redpanda
       - start
       - --mode dev-container
+      # Expose separate internal and external Kafka listeners so host-based
+      # clients do not receive container-only broker addresses in metadata.
+      - --kafka-addr
+      - internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr
+      - internal://redpanda:9092,external://localhost:19092
     ports:
       - "19092:19092" # Port for external connections (e.g., your IDE, GUI)
       - "9092:9092" # Port for internal connections within Docker
